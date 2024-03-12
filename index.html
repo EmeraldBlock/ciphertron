@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head><link rel="preconnect" href="https://fonts.googleapis.com">
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<!-- fonts -->
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 
-		<title>CipherTron tm</title>
-		<link rel="stylesheet" href="./common.css">
+		<title>CipherTron</title>
+		<link rel="stylesheet" href="./common.css" />
 		<script src="./index.js" type="module"></script>
 	</head>
 	<body>
-		<h1>CipherTron tm</h1>
-		<button id="start-button">start</button>
-		<input id="file-input" type="file" accept="application/pdf">
-		<canvas id="pdf-canvas"></canvas>
+		<main>
+			<div id="start-menu">
+				<h1>CipherTron</h1>
+				<div id="settings">
+					<label for="voice-select">Voice synthesizer</label>
+					<span>
+						<button id="voice-button">🔊</button>
+						<select id="voice-select"></select>
+					</span>
+					<label for="file-input">Presentation</label>
+					<input id="file-input" type="file" accept="application/pdf" />
+				</div>
+				<canvas id="preview-canvas" width="400" height="300"></canvas>
+				<button id="start-button" disabled>Go!</button>
+			</div>
+			<div id="presentation" class="inactive">
+				<span id="clock"></span>
+				<canvas id="pdf-canvas"></canvas>
+			</div>
+		</main>
 	</body>
 </html>

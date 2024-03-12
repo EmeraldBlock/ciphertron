@@ -1,9 +1,82 @@
 body {
 	font-family: "IBM Plex Sans";
+	margin: 0;
 }
 
 kbd {
 	border: solid 1px gray;
 	background-color: lightgray;
 	box-shadow: 0 1px gray;
+}
+
+.inactive {
+	display: none !important;
+}
+
+.unfocused {
+	opacity: 50%;
+}
+
+.disconnected {
+	background-color: pink;
+}
+
+.pending {
+	color: blue;
+}
+
+.exhausted {
+	color: red;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+}
+
+#start-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 2em;
+}
+
+#start-menu h1 {
+	align-self: center;
+}
+
+#settings {
+	display: grid;
+	grid-template-columns: max-content max-content;
+	gap: 2em;
+}
+
+#settings label {
+	text-align: right;
+}
+
+#preview-canvas {
+	align-self: center;
+	border: solid 1px gray;
+}
+
+#start-button {
+	font-size: 2em;
+}
+
+#presentation {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#clock {
+	position: absolute;
+	background-color: #ffffff80;
+	bottom: .5em;
+	font-size: 10em;
 }
