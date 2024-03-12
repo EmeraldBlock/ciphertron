@@ -84,17 +84,6 @@ voiceButton.addEventListener("click", (e) => {
 const startMenu = /** @type {HTMLElement} */ (document.getElementById("start-menu"));
 const presentation = /** @type {HTMLElement} */ (document.getElementById("presentation"));
 
-let controller;
-
-function activeCallback(time) {
-	if (controller != null && !controller.closed) {
-		window.requestAnimationFrame(activeCallback);
-		return;
-	}
-	presentation.classList.add("inactive");
-	startMenu.classList.remove("inactive");
-};
-
 const pdfCanvas = /** @type {HTMLCanvasElement} */ (document.getElementById("pdf-canvas"));
 
 async function presentPage(pageNum) {
@@ -106,6 +95,21 @@ async function presentPage(pageNum) {
 	});
 }
 
+let pageNumber = 1;
+
+let controller;
+
+function activeCallback(time) {
+	if (controller != null && !controller.closed) {
+		window.requestAnimationFrame(activeCallback);
+		return;
+	}
+	timer.reset();
+	pageNumber = 1;
+	presentation.classList.add("inactive");
+	startMenu.classList.remove("inactive");
+};
+
 startButton.addEventListener("click", async (e) => {
 	startMenu.classList.add("inactive");
 	presentation.classList.remove("inactive");
@@ -114,7 +118,6 @@ startButton.addEventListener("click", async (e) => {
 	window.requestAnimationFrame(activeCallback);
 });
 
-let pageNumber = 1;
 window.addEventListener("resize", async (e) => {
 	if (presentation.classList.contains("inactive")) {
 		return;
