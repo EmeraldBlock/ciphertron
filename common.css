@@ -1,0 +1,9 @@
+body {
+	font-family: "IBM Plex Sans";
+}
+
+kbd {
+	border: solid 1px gray;
+	background-color: lightgray;
+	box-shadow: 0 1px gray;
+}
